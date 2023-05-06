@@ -1,0 +1,18 @@
+{
+  "oficial": {
+    "compra": 199.5,
+    "venta": 205.5
+  },
+  "blue": {
+    "compra": 199.5,
+    "venta": 205.5
+  },
+  "oficontadoConLiqui": {
+    "compra": 199.5,
+    "venta": 205.5
+  },
+  "mep": {
+    "compra": 199.5,
+    "venta": 205.5
+  }
+}
