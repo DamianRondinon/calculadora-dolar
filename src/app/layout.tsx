@@ -1,7 +1,7 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Caladea } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const caladea = Caladea({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -15,9 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className} >
+      <body className={caladea.className} >
       <main className="h-screen bg-[#184e77] flex items-center justify-center">
-        <div className="m-auto max-w-screen-lg px-4 flex-1 max-h-96 h-full ">
+        <div className="m-auto max-w-screen-md px-4 flex-1 max-h-96 h-full min-h-[420px]">
         <div className="rounded-3xl bg-[#edf6f9] shadow-2xl p-10 h-full w-full">
         {children}
         </div>

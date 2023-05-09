@@ -1,29 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import Form from "./components/Form";
-import cotizaciones from "./cotizaciones.json";
+import Form from "../components/Form";
 
-export default function Home() {
+import { Cotizacion } from "../types";
+
+export default function HomeClient({
+  cotizaciones,
+}: {
+  cotizaciones: Cotizacion[];
+}) {
   const [amount, setAmount] = useState(0);
 
   return (
-    <main className="flex h-full gap-4">
-      <section className="flex-1">
+    <main className="grid gap-8">
+      <section>
         <Form value={amount} onChange={(amount: number) => setAmount(amount)} />
       </section>
       <section className="flex-1 rounded-3xl bg-[#63B0CD] p-8 text-white overflow-y-auto">
         <ul className="flex flex-col gap-4">
-          {Object.entries(cotizaciones).map(
-            ([name, value]: [string, { compra: number; venta: number }]) => {
-              const total = amount ? Number(amount / value.venta) : value.venta;
+          {cotizaciones.map(
+            ({nombre, venta}) => {
+              const total = amount ? Number(amount / venta) : venta;
 
               return (
                 <li
-                  key={name}
+                  key={nombre}
                   className="flex gap-4 justify-between items-center"
                 >
-                  <div className="text-md font-medium">{name}</div>
+                  <div className="text-md font-medium">{nombre}</div>
                   <div className="flex items-center gap-4">
                     {amount ? (
                       <div className="text-xl font-bold">
@@ -33,8 +38,8 @@ export default function Home() {
                         })}
                       </div>
                     ) : null}
-                    <div className="text-3xl font-semibold">
-                      {Number(value.venta).toLocaleString("es-AR", {
+                    <div className="text-2xl font-semibold">
+                      {Number(venta).toLocaleString("es-AR", {
                         style: "currency",
                         currency: "ARS",
                       })}

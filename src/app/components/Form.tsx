@@ -9,12 +9,12 @@ interface FormProps {
 
 function Form({ value, onChange }: FormProps) {
   return (
-    <form className="mb-2 w-full">
-      <label>
+    <form className="w-full">
+      <label className="block space-y-2">
         Monto en ARS:
         <input
           type="number"
-          className="block rounded-xl bg-gray-400 p-2 text-right text-3xl"
+          className="block rounded-xl bg-gray-300 p-2 text-right text-3xl w-full mt-2"
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
         />
